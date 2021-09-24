@@ -30,6 +30,9 @@ function nextPage(num) {
     <div class="container msg">
         <label class="text-danger" id="msg"></label>
     </div>
+    <div class="resend">
+        <p class="text-secondary">Don't recieve the code?<button class="btn btn-link" onclick="resend()">Resend</button></p>
+    </div>
     <div class="container button">
         <button type="button" class="btn btn-outline-primary" id="btn1" onclick="verifyOtp()">Verify</button>
     </div>
@@ -37,7 +40,7 @@ function nextPage(num) {
     document.getElementById("page").innerHTML = page2;
 
 }
-function finalPage(){
+function finalPage() {
     let page3 = `<div class="container">
     <div class="head">
         <h3>Wellcome To Admit Kard</h3>
@@ -53,7 +56,7 @@ function finalPage(){
         <label class="text-info" id="msg">* This will take 5 min</label>
     </div>
 </div>`
-document.getElementById("page").innerHTML = page3;
+    document.getElementById("page").innerHTML = page3;
 }
 
 function change(id) {
@@ -83,13 +86,16 @@ function verifyOtp() {
     for (let i = 0; i < 4; i++) {
         otp += document.getElementById(i + 1).value;
     }
-    if(otp==otp2){
+    if (otp == otp2) {
         finalPage()
     }
-    else{
+    else {
         document.getElementById('msg').innerHTML = "OTP doesn't Match"
     }
 }
-function reload(){
+function reload() {
     location.reload();
+}
+function resend(){
+    window.alert("OTP has been Sent");
 }
